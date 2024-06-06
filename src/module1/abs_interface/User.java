@@ -1,6 +1,7 @@
 package module1.abs_interface;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class User {
 
     public User(String name,  List<Book> books) {
         this.name = name;
-        this.books = books;
+        this.books = (books != null) ? books : new ArrayList<>(); // Ensure books is not null
 
     }
 

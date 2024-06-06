@@ -30,26 +30,21 @@ public class LibraryAdmin extends User implements Administrator {
 
     @Override
     public void overdueNotification(LibReader reader) {
-        long daysBorrowed = ChronoUnit.DAYS.between(reader.getRentOfBook(), LocalDate.now());
-        if (reader.getRentOfBook()!=null){
-        if(daysBorrowed>14){
-            System.out.format("Reader %s has overdue the book %s by %d days%n",
-                    reader.getName(),reader.getBooks(),daysBorrowed-14);
-            for(Book b: reader.getBooks()){
-                if (!b.isAvailable()){
-                    System.out.format("Overdue book: %s by %s%n", b.getTitle(), b.getAuthor());
+        LocalDate rentDate = reader.getRentOfBook();
+        if (rentDate != null) {
+            long daysBorrowed = ChronoUnit.DAYS.between(rentDate, LocalDate.now());
+            if (daysBorrowed > 14) { // Assuming a 14-day borrowing period
+                System.out.format("Reader %s has overdue books by %d days%n", reader.getName(), daysBorrowed - 14);
+                for (Book b : reader.getBooks()) {
+                    if (!b.isAvailable()) {
+                        System.out.format("Overdue book: %s by %s%n", b.getTitle(), b.getAuthor());
+                    }
                 }
-
+            } else {
+                System.out.format("Reader %s has no overdue books%n", reader.getName());
             }
-
-        }
-        else{
-            System.out.format("Reader %s has no overdue books%n", reader.getName());
-        }
-        }
-        else{
+        } else {
             System.out.format("Reader %s has no borrowed books%n", reader.getName());
         }
-
     }
 }
