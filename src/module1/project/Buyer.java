@@ -5,7 +5,7 @@ import org.w3c.dom.ls.LSOutput;
 public class Buyer extends User{
     TypeOfCard typeOfCard;
     String creditCardNumber;
-    Long balance;
+    long balance;
 
     public Buyer() {
     }
@@ -31,20 +31,31 @@ public class Buyer extends User{
     }
 
     public void setCreditCardNumber(String creditCardNumber)  {
-        if (creditCardNumber.length()!=16){
-            System.out.println("Invalid card number");
+        if (creditCardNumber.length()==16){
+            this.creditCardNumber = creditCardNumber;
+
         }
         else {
-        this.creditCardNumber = creditCardNumber;
+            System.out.println("Invalid card number");
     }}
+
+
+
+    public long getBalance() {
+        return balance;
+    }
+
+    public void setBalance(long balance) {
+        this.balance = balance;
+    }
 
     @Override
     void changeNumber(String number) {
-
+        setCreditCardNumber(number);
     }
 
     @Override
     void changeFullname(String data) {
-
+        setFullname(data);
     }
 }

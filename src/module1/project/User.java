@@ -21,7 +21,10 @@ public abstract class User {
     }
 
     public void setFullname(String fullname) {
-        this.fullname = fullname;
+        if (fullname.isEmpty())
+            System.out.println("The field full name cannot be empty");
+        else
+            this.fullname = fullname;
     }
 
     public Long getIIN() {
@@ -29,14 +32,19 @@ public abstract class User {
     }
 
     public void setIIN(Long IIN) {
+
         this.IIN = IIN;
     }
 
     public String getPhoneNumber() {
+
         return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
+        if (phoneNumber.isEmpty()){
+            System.out.println("The field phone number cannot be empty");
+        }
         this.phoneNumber = phoneNumber;
     }
 
