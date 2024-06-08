@@ -1,27 +1,26 @@
 package module1.hashcodeANDequals;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LostAndFoundOffice {
-    List<Object> things;
+    List<Object> things =new ArrayList<>();
 
     boolean  check(Object o) {
         if (o == null) return false;
-        boolean answer=false;
         for (Object object : things) {// логика проверки вещи в списке
             if (object.equals(o))
-                answer= true;
+                return  true;
 
 
         }
-        return answer;
+        return false;
 
     }
 
     void put(Object o){
         if (o!=null){
             for (Object object:things) {
-                if (!object.equals(o)){
                      things.add(o);
                 }
 
@@ -29,7 +28,7 @@ public class LostAndFoundOffice {
         }
     }
 
-}
+
 class Ball{}
 class MusicalInstruments{}
 class Hat{}
