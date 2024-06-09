@@ -51,7 +51,6 @@ import java.util.List;
                 salesman.setBankAccount(salesman.getBankAccount()+total);
                 System.out.println("Покупка завершена. Сумма: " + total);
 
-                // Очистка корзины после покупки
                 items.clear();
             } else {
                 System.out.println("Недостаточно денег на кредитной карте для завершения покупки.");
@@ -60,4 +59,4 @@ import java.util.List;
     }
 
 
-}
+

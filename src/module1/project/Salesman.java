@@ -26,15 +26,12 @@ public class Salesman extends User{
 
 
     public Salesman(String fullname, Long IIN, String phoneNumber, TypeOfLegalEntity typeOfLegal, Long bankAccount,
-                    String creditCardNumber, Laptop[] laptops, Mobile[] mobile, int counterLaptops, int counterMobile) {
+                    String creditCardNumber) {
         super(fullname, IIN, phoneNumber);
         this.typeOfLegal = typeOfLegal;
         this.bankAccount = bankAccount;
         this.creditCardNumber = creditCardNumber;
-        this.laptops = laptops;
-        this.mobile = mobile;
-        this.counterLaptops = counterLaptops;
-        this.counterMobile = counterMobile;
+
     }
 
     public String getCreditCardNumber() {
